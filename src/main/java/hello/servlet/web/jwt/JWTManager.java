@@ -1,4 +1,4 @@
-package hello.servlet.jwt;
+package hello.servlet.web.jwt;
 
 
 //import com.maproom.api.domain.Room;

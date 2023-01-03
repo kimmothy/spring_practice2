@@ -1,9 +1,8 @@
 package hello.servlet.basic.response;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import hello.servlet.basic.HelloData;
 import hello.servlet.domain.Room;
-import hello.servlet.jwt.JWTManager;
+import hello.servlet.web.jwt.JWTManager;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Random;
 
 @WebServlet(name = "responseJsonServlet", urlPatterns = "/create-room")
