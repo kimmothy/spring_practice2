@@ -2,7 +2,7 @@ package hello.servlet.web.jwt;
 
 
 //import com.maproom.api.domain.Room;
-import hello.servlet.domain.Room;
+import hello.servlet.domain.room.Room;
 import io.jsonwebtoken.*;
 
 import java.util.Date;
@@ -27,8 +27,8 @@ public class JWTManager {
 
     public String createRoomToken(Room room, String roomKey) {
         Claims claims = Jwts.claims().setId(roomKey);
-        claims.put("x", room.getX());
-        claims.put("y", room.getY());
+        claims.put("longitude", room.getLongitude());
+        claims.put("latitude", room.getLatitude());
         claims.put("roomName", room.getRoomName());
         claims.put("endTime", room.getEndTime());
         Date now = new Date();

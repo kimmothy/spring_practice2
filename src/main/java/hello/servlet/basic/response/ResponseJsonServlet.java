@@ -1,7 +1,7 @@
 package hello.servlet.basic.response;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import hello.servlet.domain.Room;
+import hello.servlet.domain.room.Room;
 import hello.servlet.web.jwt.JWTManager;
 
 import javax.servlet.ServletException;
