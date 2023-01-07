@@ -12,14 +12,16 @@ public class Room {
     private double latitude;
     private String roomName;
     private String endTime;
+    private String roomKey;
 
     public Room(){}
 
-    public Room(double longitude, double latitude, String roomName, String endTime) {
+    public Room(double longitude, double latitude, String roomName, String endTime, String roomKey) {
         this.longitude = longitude;
         this.latitude = latitude;
         this.roomName = roomName;
         this.endTime = endTime;
+        this.roomKey = roomKey;
     }
 
     @Override

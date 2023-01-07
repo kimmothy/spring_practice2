@@ -1,8 +1,7 @@
-package hello.servlet.basic.response;
+package hello.servlet.roomapi;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import hello.servlet.roomapi.Room;
 import hello.servlet.web.jwt.JWTManager;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,34 +11,41 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Random;
 
-@WebServlet(name = "responseJsonServlet", urlPatterns = "/create-room")
-public class ResponseJsonServlet extends HttpServlet {
+@WebServlet(name = "roomCreateServlet", urlPatterns = "/servlet/rooms/create")
+public class RoomCreateServlet extends HttpServlet {
 
-    private ObjectMapper objectMapper = new ObjectMapper();
+    private RoomRepository repository;
 
-    private JWTManager jwtManager = new JWTManager();
+    private JWTManager jwtManager;
+
+    @Autowired
+    public RoomCreateServlet(RoomRepository repository, JWTManager jwtManager) {
+        this.jwtManager = jwtManager;
+        this.repository = repository;
+
+    }
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //COntent type: text/html; charset=utf-8
-        response.setContentType("application/json");
+
+        response.setContentType("application/plain");
         response.setCharacterEncoding("utf-8");
-        //사용자가 준 값 빼내기
-        int x = Integer.parseInt(request.getParameter("x"));
-        int y = Integer.parseInt(request.getParameter("y"));
+        double latitude = Double.parseDouble(request.getParameter("latitude"));
+        double longitude = Double.parseDouble(request.getParameter("longitude"));
         String roomName = request.getParameter("roomName");
         String endTime = request.getParameter("endTime");
 
-        Room newRoom = new Room(x,y,roomName,endTime, "");
-        //룸 객체에 사용자에게서 json 데이터 받은 것 채워넣기
-
         //랜덤 문자열 7자로 키값 생성하여 룸 객체에 넣기
         String roomKey = randomString();
+
+        //룸 객체에 생성하고 사용자에게서 json 데이터 받은 것 채워넣기
+        Room newRoom = new Room(longitude, latitude, roomName, endTime, roomKey);
 
         //룸 객체 정보 토대로 jwt 토큰 생성하기
         String result = jwtManager.createRoomToken(newRoom);
 
         //몽고 DB에 데이터 저장하기
+        repository.save(newRoom);
 
 
         //String result = objectMapper.writeValueAsString(newRoom);

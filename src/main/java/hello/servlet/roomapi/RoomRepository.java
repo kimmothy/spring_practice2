@@ -10,4 +10,5 @@ public interface RoomRepository extends MongoRepository<Room, String> {
 
 //    public Room findByRoomKey(String roomKey);
     public List<Room> findByRoomName(String roomName);
+    public Room findByRoomKey(String roomKey);
 }

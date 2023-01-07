@@ -4,9 +4,11 @@ package hello.servlet.web.jwt;
 //import com.maproom.api.domain.Room;
 import hello.servlet.roomapi.Room;
 import io.jsonwebtoken.*;
+import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
+@Component
 public class JWTManager {
     private static String SECRET_KEY = "chansecret";
     // JWT expiration time
@@ -25,8 +27,10 @@ public class JWTManager {
                 .compact();
     }
 
-    public String createRoomToken(Room room, String roomKey) {
-        Claims claims = Jwts.claims().setId(roomKey);
+    public String createRoomToken(Room room) {
+//        Claims claims = Jwts.claims().setId(roomKey);
+        Claims claims = Jwts.claims();
+        claims.put("roomKey", room.getRoomKey());
         claims.put("longitude", room.getLongitude());
         claims.put("latitude", room.getLatitude());
         claims.put("roomName", room.getRoomName());
