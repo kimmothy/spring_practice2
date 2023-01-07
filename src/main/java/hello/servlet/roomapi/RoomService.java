@@ -1,7 +1,5 @@
-package hello.servlet.web.servlet;
+package hello.servlet.roomapi;
 
-import hello.servlet.domain.room.Room;
-import hello.servlet.domain.room.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.ServletException;
@@ -12,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "roomSaveServlet", urlPatterns = "/servlet/rooms/save")
+@WebServlet(name = "roomSaveServlet", urlPatterns = "/servlet/rooms/save/example")
 public class RoomService extends HttpServlet {
 
     @Autowired
@@ -49,7 +47,5 @@ public class RoomService extends HttpServlet {
             System.out.println(room);
             w.write(room.toString());
         }
-
-
     }
 }

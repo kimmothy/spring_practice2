@@ -2,7 +2,7 @@ package hello.servlet.web.jwt;
 
 
 //import com.maproom.api.domain.Room;
-import hello.servlet.domain.room.Room;
+import hello.servlet.roomapi.Room;
 import io.jsonwebtoken.*;
 
 import java.util.Date;

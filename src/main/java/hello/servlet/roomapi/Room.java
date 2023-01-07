@@ -1,4 +1,4 @@
-package hello.servlet.domain.room;
+package hello.servlet.roomapi;
 
 import lombok.Getter;
 import lombok.Setter;
