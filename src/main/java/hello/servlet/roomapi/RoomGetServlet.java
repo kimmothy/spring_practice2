@@ -30,15 +30,13 @@ public class RoomGetServlet extends HttpServlet {
 
         response.setContentType("application/plain");
         response.setCharacterEncoding("utf-8");
-
         String roomKey = request.getParameter("roomKey");
+        System.out.println(roomKey);
 
         Room room = repository.findByRoomKey(roomKey);
 
         String roomToken = jwtManager.createRoomToken(room);
         PrintWriter writer = response.getWriter();
         writer.write(roomToken);
-
-
     }
 }

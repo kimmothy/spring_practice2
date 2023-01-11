@@ -53,7 +53,6 @@ public class RoomCreateServlet extends HttpServlet {
         response.getWriter().write("\n");
 
         response.getWriter().write("jwt: " + result);
-
     }
 
     private String randomString(){
