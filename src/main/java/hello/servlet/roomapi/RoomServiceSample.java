@@ -11,13 +11,13 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 @WebServlet(name = "roomSaveServletSample", urlPatterns = "/servlet/rooms/save/sample")
-public class RoomService extends HttpServlet {
+public class RoomServiceSample extends HttpServlet {
 
 
     private RoomRepository repository;
 
     @Autowired
-    public RoomService(RoomRepository repository){
+    public RoomServiceSample(RoomRepository repository){
         this.repository = repository;
 
     }
