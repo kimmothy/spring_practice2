@@ -31,8 +31,8 @@ public class JWTManager {
 //        Claims claims = Jwts.claims().setId(roomKey);
         Claims claims = Jwts.claims();
         claims.put("roomKey", room.getRoomKey());
-        claims.put("longitude", room.getLongitude());
-        claims.put("latitude", room.getLatitude());
+        claims.put("longitude", room.getLng());
+        claims.put("latitude", room.getLat());
         claims.put("roomName", room.getRoomName());
         claims.put("endTime", room.getEndTime());
         Date now = new Date();
@@ -84,7 +84,5 @@ public class JWTManager {
         } else {
             System.out.println("erorr");
         }
-
     }
-
 }

@@ -8,8 +8,8 @@ import org.springframework.data.annotation.Id;
 public class Room {
     @Id
     private String id;
-    private double longitude;
-    private double latitude;
+    private double lng;
+    private double lat;
     private String roomName;
     private String endTime;
     private String roomKey;
@@ -17,8 +17,8 @@ public class Room {
     public Room(){}
 
     public Room(double longitude, double latitude, String roomName, String endTime, String roomKey) {
-        this.longitude = longitude;
-        this.latitude = latitude;
+        this.lng = lng;
+        this.lat = lat;
         this.roomName = roomName;
         this.endTime = endTime;
         this.roomKey = roomKey;
