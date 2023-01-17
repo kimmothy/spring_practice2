@@ -13,8 +13,7 @@ public class ViewResolver {
     private String extension = ".jsp";
 
     public MyView process(HttpServletRequest request, HttpServletResponse response, ModelView view){
-        Map<String, Object> model = view.getModel();
-        model.forEach(request::setAttribute);
+
         return new MyView(pathBase + view.getViewName() + extension);
 
     }
