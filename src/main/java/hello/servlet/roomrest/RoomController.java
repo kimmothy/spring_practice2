@@ -1,15 +1,9 @@
 package hello.servlet.roomrest;
-
-
 import hello.servlet.roomapi.Room;
-import hello.servlet.roomapi.RoomRepository;
 import hello.servlet.web.jwt.JWTManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @Controller
 public class RoomController {

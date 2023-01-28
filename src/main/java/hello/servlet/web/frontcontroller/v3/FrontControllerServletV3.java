@@ -55,7 +55,7 @@ public class FrontControllerServletV3 extends HttpServlet {
         Map<String,String> modelMap = new HashMap<String, String>();
 
         modelMap.put("username", request.getParameter("username"));
-        modelMap.put("age", request.getParameter("username"));
+        modelMap.put("age", request.getParameter("age"));
         return modelMap;
     }
 }
