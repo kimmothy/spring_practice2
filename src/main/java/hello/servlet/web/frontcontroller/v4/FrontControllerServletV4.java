@@ -15,15 +15,15 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-@WebServlet(name="frontControllerServletV4", urlPatterns = "front-controller/v4/*")
+@WebServlet(name="frontControllerServletV4", urlPatterns = "/front-controller/v4/*")
 public class FrontControllerServletV4 extends HttpServlet {
 
     private Map<String, ControllerV4> controllerMap = new HashMap<>();
 
     public FrontControllerServletV4() {
-        controllerMap.put("front-controller/v4/members/new-form", new MemberFormControllerV4());
-        controllerMap.put("front-controller/v4/members/save", new MemberSaveControllerV4());
-        controllerMap.put("front-controller/v4/members", new MemberListControllerV4());
+        controllerMap.put("/front-controller/v4/members/new-form", new MemberFormControllerV4());
+        controllerMap.put("/front-controller/v4/members/save", new MemberSaveControllerV4());
+        controllerMap.put("/front-controller/v4/members", new MemberListControllerV4());
     }
 
     @Override
@@ -56,7 +56,7 @@ public class FrontControllerServletV4 extends HttpServlet {
         Map<String,String> modelMap = new HashMap<String, String>();
 
         modelMap.put("username", request.getParameter("username"));
-        modelMap.put("age", request.getParameter("username"));
+        modelMap.put("age", request.getParameter("age"));
         return modelMap;
     }
 }

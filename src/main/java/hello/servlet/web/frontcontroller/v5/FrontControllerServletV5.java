@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet(name = "frontControllerServletV5", urlPatterns = "front-controller/v5/*")
+@WebServlet(name = "frontControllerServletV5", urlPatterns = "/front-controller/v5/*")
 public class FrontControllerServletV5 extends HttpServlet {
 
     private final Map<String, Object> handlerMappingMap = new HashMap<>();
@@ -36,9 +36,9 @@ public class FrontControllerServletV5 extends HttpServlet {
     }
 
     private void initHandlerMappingMap() {
-        handlerMappingMap.put("front-controller/v5/members/new-form", new MemberFormControllerV3());
-        handlerMappingMap.put("front-controller/v5/members/save", new MemberSaveControllerV3());
-        handlerMappingMap.put("front-controller/v5/members", new MemberListControllerV3());
+        handlerMappingMap.put("/front-controller/v5/members/new-form", new MemberFormControllerV3());
+        handlerMappingMap.put("/front-controller/v5/members/save", new MemberSaveControllerV3());
+        handlerMappingMap.put("/front-controller/v5/members", new MemberListControllerV3());
     }
 
     @Override
